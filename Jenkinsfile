@@ -46,7 +46,6 @@ pipeline {
         sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 3 4"
       }
     }
-
     stage('Promote to Green') {
       agent {
         label 'apache'
@@ -72,7 +71,7 @@ pipeline {
         sh 'git checkout development'
         echo 'Checking Out Master Branch'
        // sh 'git branch master'
-	sh 'git pull origin master'
+	    sh 'git pull origin master'
         sh 'git checkout master'
         echo 'Merging Development into Master Branch'
         sh 'git merge development'
